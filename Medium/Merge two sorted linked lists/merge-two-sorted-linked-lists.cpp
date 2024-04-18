@@ -86,22 +86,18 @@ Node* sortedMerge(Node* head1, Node* head2)
 {  
     // code here
     int k = 0 ; 
-     Node*temp1 = head1 ;
+    Node*temp1 = head1 ;
     Node*temp2 = head2 ;
     if(temp1->data < temp2->data){
-    k = temp1->data; 
-    temp1=temp1->next ;
-        
+        k = temp1->data; 
+        temp1=temp1->next ;
     }
     else{
         k = temp2->data; 
         temp2=temp2->next; 
     }
     Node* header = new Node(k);
-    
-    // Node*temp3  = new Node(NULL) ;
-    // temp3->next= NULL ; 
-    // header->next = temp3 ; 
+     
     Node*temp3 = header ;
     while(temp1!=NULL&&temp2!=NULL){
         
@@ -115,12 +111,12 @@ Node* sortedMerge(Node* head1, Node* head2)
         else{
             Node* temp = new Node(temp2->data) ; 
             temp3->next = temp ;
-             temp3 = temp3->next; 
-             temp2=temp2->next;
+            temp3 = temp3->next; 
+            temp2=temp2->next;
         }
     }
     while(temp1!=NULL ){ 
-        Node* temp = new Node(temp1->data) ; 
+            Node* temp = new Node(temp1->data) ; 
             temp3->next = temp ;
             temp3 = temp3->next ;             
             temp1=temp1->next;
@@ -128,8 +124,8 @@ Node* sortedMerge(Node* head1, Node* head2)
     while(temp2!=NULL ){
             Node* temp = new Node(temp2->data) ; 
             temp3->next = temp ;
-             temp3 = temp3->next; 
-             temp2=temp2->next;
+            temp3 = temp3->next; 
+            temp2=temp2->next;
     }
     return header ;
     
