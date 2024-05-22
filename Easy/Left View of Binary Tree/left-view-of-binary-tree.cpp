@@ -128,24 +128,17 @@ struct Node
  */
 
 //Function to return a list containing elements of left view of the binary tree.
-void  solve(Node*root , vector<int> &ans , int level){
-    if(root==NULL)return ; 
-         
-    if(level==ans.size()){
-         ans.push_back(root->data) ; 
+void solve(Node*root , vector<int>& v , int level){
+    if(root==NULL )return ; 
+    if(v.size()==level){
+        v.push_back(root->data) ;
     }
-     
-    solve(root->left,ans,level+1) ;
-     
-     
-    solve(root->right,ans,level+1) ;
-         
-     
+    solve(root->left,v,level+1);
+    solve(root->right,v,level+1);
 }
 vector<int> leftView(Node *root)
 {
-   vector<int> ans ; 
-   solve(root,ans,0) ; 
-   return ans ; 
-   
+   vector<int> v ;
+   solve(root,v,0) ; 
+   return v ; 
 }
